@@ -1,39 +1,10 @@
-# XRoads
-A webapp for students to share their ideas using Django. Features include a unique user tag system similar to discord, custom user authentication, posting, searching and page navigation. Development of this project has been discontinued but many of the features like commenting and voting are completed in the backend but not in the front end. Lots of this code would be useful for anyone undertaking a forum system using Django.
+## Inspiration
 
-### This would be the first page that an unauthenticated user would see if they went to the url
-![landing page](https://user-images.githubusercontent.com/31194806/69973126-fa2a3c80-14f0-11ea-9d34-6168b0beffdf.png)
+Schools and their students were hit particularly hard by the pandemic and while efforts were made to make sure that our education could continue amid the Coronavirus, many aspects of school (particularly the fun ones) were lost.
 
-### The login and logout pages using custom user models
-![login](https://user-images.githubusercontent.com/31194806/69973127-fa2a3c80-14f0-11ea-96d3-5693c18f7c1b.png)
-![signup](https://user-images.githubusercontent.com/31194806/69973130-fac2d300-14f0-11ea-8812-897c4848ac10.png)
+Clubs have been big parts of our high school careers, so naturally we hoped that they could continue. However, this was easier said than done. Finding new members was never easy and keeping track of meeting dates and times across different clubs was a headache.
 
-### There is also a user settings page (not fully functional)
-![account settings](https://user-images.githubusercontent.com/31194806/69973123-fa2a3c80-14f0-11ea-987b-c7524a588ff0.png)
+XRoads, named after our school’s central meeting spot, crossroads, is a platform to connect clubs and extracurriculars with current and prospective members. It aims to address the problems that were worsened by COVID-19 while remaining useful well after we return to in-person education.
 
-### You can create posts directly from the forum home, see example post in the image on how to do so
-![forum home](https://user-images.githubusercontent.com/31194806/69973520-a10ed880-14f1-11ea-9d0d-bc657796766b.png)
-![Post Example](https://user-images.githubusercontent.com/31194806/69974050-85580200-14f2-11ea-9377-1a3a913fdd9e.png)
-
-### There is post body, title and class search functionality which can just be done by using the search bar (created using solr)
-![Search Example](https://user-images.githubusercontent.com/31194806/69973129-fac2d300-14f0-11ea-82e7-e766488c5507.png)
-
----
-
-### First time dev setup
-1. Create virtual environment and install pip packages in requirements.txt
-2. When in the main directory (~/XRoads) run the following scripts:
-```terminal
-/bin/bash scripts/postgres/install.sh      (installs postgres with databases and users required)
-/bin/bash scripts/solr/setup/install.sh    (installs solr with correct setup)
-```
-
-### Management commands
-There are several scripts to help reduce the amount of time doing configuration and more time coding! 
-They're all located within the scripts folder. Heres a general overview of them:
-##### Postgres
--  **_reset-db.sh_** In the event a terrible mistake has been made, this will reset the local database entirely. This will remove all users other than djangouser
-- **_create-superuser.sh_** This can be used to add an additional user with rights given to the local database
-##### Solr
-- **_management/rebuild-index.sh_** Is useful for when you want to update the schema or rebuild the search indexes
-- **_management/_** _start.sh, stop.sh, restart.sh_ These apply to the solr server. It is pretty self explanatory
+## What is XRoads
+XRoads allows students to connect with clubs that they may have not been exposed to otherwise. Students can explore clubs at their school, learn more about them, see upcoming events and get in touch. The easy to use editor allows club leaders to create a highly customized page for prospective members. The access-code based edit system allows for easy set up for schools and programming-inclined students.  
