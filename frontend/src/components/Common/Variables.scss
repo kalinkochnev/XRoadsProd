@@ -1,0 +1,31 @@
+$redDefault: #EC4343;
+$redLight: #ff6a6a;
+$redHover: #d43636;
+$greyBackground: #e2ebee;
+
+$greyOutline: rgb(211, 211, 211);
+$thinOutline: solid $greyOutline 2px;
+$darkShadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+$lightShadow: 0 10px 20px rgba(0,0,0,0.07), 0 6px 6px rgba(0,0,0,0.08);
+
+$cardRoundBig: 20px;
+$cardRoundSmall: 10px;
+
+$navbarHeight: 70px;
+$siteMargins: 12%;
+
+$maxPageWidth: 1000px;
+
+$slideAspectRatio: 16/9;
+
+:export {
+    redDefault: $redDefault;
+    redHover: $redHover;
+    greyOutline: $greyOutline;
+    cardRoundBig: $cardRoundBig;
+    cardRoundSmall: $cardRoundSmall;
+    navbarHeight: $navbarHeight;
+    siteMargins: $siteMargins;
+    maxPageWidth: $maxPageWidth;
+    slideAspectRatio: $slideAspectRatio;
+  }

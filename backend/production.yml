@@ -1,0 +1,54 @@
+version: '3'
+volumes:
+  production_postgres_data: {}
+  production_postgres_data_backups: {}
+  static_content:
+  media_content: 
+services:
+  django:
+    build:
+      context: .
+      dockerfile: ./compose/production/django/Dockerfile
+    image: backend_production_django
+    depends_on:
+      - postgres
+      - redis
+    env_file:
+      - ./.envs/.production/.django
+      - ./.envs/.production/.postgres
+    command: /start
+    volumes:
+      - static_content:/app/staticfiles/
+      - media_content:/app/backend/media/
+    ports:
+      - "5000:5000"
+  nginx:
+    image: backend_production_nginx
+    build:
+      dockerfile: ./compose/production/nginx/Dockerfile
+      context: .
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - django
+    links:
+      - django      
+    volumes:
+      - static_content:/home/nginx/static/
+      - media_content:/home/nginx/media/
+      - ../frontend/build/:/home/nginx/react-build/
+      - ./backend/letsencrypt/:/etc/letsencrypt/
+  postgres:
+    build:
+      context: .
+      dockerfile: ./compose/production/postgres/Dockerfile
+    image: backend_production_postgres
+    volumes:
+      - production_postgres_data:/var/lib/postgresql/data:Z
+      - production_postgres_data_backups:/backups:z
+    env_file:
+      - ./.envs/.production/.postgres
+  
+  redis:
+    image: redis:5.0

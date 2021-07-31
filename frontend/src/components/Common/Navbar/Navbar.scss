@@ -1,0 +1,48 @@
+@import "../Variables.scss";
+@import "../Common.scss";
+
+
+.navbar-simple {
+  @extend .flex-container;
+
+  /*Sticks navbar at the top*/
+  max-height: $navbarHeight;
+  width: 100%;
+  top: 0px;
+  right: 0px;
+  overflow: hidden;
+  /*Styling of background and text*/
+  background-color: $redDefault;
+  color: white;
+
+  /*Center items vertically in a row with elements at start, end and center*/
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+
+  .navbar-buttons {
+
+    .nav-item {
+      @extend .basic_button;
+      text-decoration: none;
+
+      $font-size: 20px;
+      
+      /*Sets padding of button to take up entire height of navbar*/
+      padding: ($navbarHeight - $font-size)/2 20px ($navbarHeight - $font-size)/2
+        20px;
+      height: 100%;
+
+      /*Styles text*/
+      font-size: $font-size;
+      font-weight: 400;
+      color: white;
+    }
+
+    .nav-item:hover {
+      background-color: $redHover;
+    }
+  }
+}
+

@@ -1,0 +1,49 @@
+@import "../Variables.scss";
+@import "../Common.scss";
+
+.tab-list {
+    margin-top: 60px;
+    font-size: 27px;
+    font-family: Raleway;
+    font-weight: bold;
+    padding-left: 0;
+    width: 100%;
+    display: flex;
+}
+
+.tab-list-item {
+    text-align: center;
+    width: 100%;
+    list-style: none;
+    margin-bottom: -1px;
+    padding: 0.5rem 0.75rem;
+    transition: 0.3s;
+    position: relative;
+    z-index: 0;
+}
+
+.tab-content {
+    padding: 30px;
+    margin-top:-25px;
+    background-color: white;
+    box-shadow: $lightShadow;
+    position: relative;
+    z-index: 1;
+}
+
+.fadeIn {
+    animation-name: fade-in;
+    animation-duration: 0.3s;
+}
+
+@keyframes fade-in {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.tab-list-active {
+    color: white;
+    background-color: $redDefault;
+    box-shadow: $lightShadow;
+    position: relative;
+}
